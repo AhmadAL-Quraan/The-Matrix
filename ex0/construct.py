@@ -1,4 +1,3 @@
-from re import split
 import sys as s
 
 if __name__ == "__main__":
@@ -22,6 +21,5 @@ if __name__ == "__main__":
         print(
             "Safe to install packages without affecting the global system.\n"
         )
-        print(
-            f"Package installation path: {s.prefix}/lib/python3.11/site-packages\n"
-        )
+        print(f"Package installation path:\
+{s.prefix}/lib/python3.11/site-packages\n")

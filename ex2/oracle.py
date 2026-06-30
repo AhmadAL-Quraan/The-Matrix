@@ -46,9 +46,9 @@ print("Database: Connected to local instance")
 # if response.status_code == 200:
 #     print(f"API Access: Authenticated")  # Check for 200 OK
 # else:
-#     print(f"API Access: FAILED")  # Check for 200 OK
+#     print(f"API Access: FAILED")
 
-print(f"API Access: Authenticated")  # Check for 200 OK
+print("API Access: Authenticated")
 
 print(f"Log level: {log_level}")
 print("Zion network Online\n")

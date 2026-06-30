@@ -1,20 +1,25 @@
 import importlib.util
+from types import ModuleType
 
 print("LOADING STATUS: Loading programs...")
 
 
-def check_import(package_name):
+def check_import(package_name: str) -> bool:
     spec = importlib.util.find_spec(package_name)
-    return True if spec != None else False
+    if spec is not None:
+        return True
+    else:
+        return False
 
 
-def print_it(bool_it: str, package_name, package_name_str, comment: str):
-    print(
-        f"[{bool_it}] {package_name_str} ({package_name.__version__}) - {comment}"
-    )
+def print_it(
+    bool_it: str, package_name: ModuleType, package_name_str: str, comment: str
+) -> None:
+    print(f"[{bool_it}]\
+{package_name_str} ({package_name.__version__}) - {comment}")
 
 
-def print_it2(bool_it: str, package_name_str, comment: str):
+def print_it2(bool_it: str, package_name_str: str, comment: str) -> None:
     print(f"[{bool_it}] {comment} : {package_name_str}")
     exit(0)
 
@@ -31,6 +36,8 @@ if check_import("matplotlib"):
     import matplotlib
 
     print_it("OK", matplotlib, "matplotlib", "Visualization ready")
+    import matplotlib.pyplot as plt
+
 else:
     print_it2("FAILED", "matplotlib", "Didn't found")
 if check_import("numpy"):
@@ -75,7 +82,6 @@ print("Generating visualization...\n")
 print("Analysis complete!")
 temps = df["temperature"].to_numpy()
 
-import matplotlib.pyplot as plt
 
 time = df["time"].to_numpy()
 plt.plot(time, temps, marker="o")
